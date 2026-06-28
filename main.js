@@ -17,4 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.15 });
 
   revealEls.forEach(el => observer.observe(el));
+
+  const touchEls = document.querySelectorAll('.post-card, .footer-social a');
+  touchEls.forEach(el => {
+    el.addEventListener('touchstart', () => el.classList.add('is-touched'), { passive: true });
+    el.addEventListener('touchend', () => setTimeout(() => el.classList.remove('is-touched'), 150));
+  });
 });
