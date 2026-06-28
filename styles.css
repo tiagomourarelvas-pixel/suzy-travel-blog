@@ -328,7 +328,7 @@ nav ul li a.active{color:var(--coral);}
   transition:transform .6s ease-out;
 }
 
-.post-card.is-visible img{
+.post-card.in-view img{
   transform:scale(1);
 }
 

@@ -23,4 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('touchstart', () => el.classList.add('is-touched'), { passive: true });
     el.addEventListener('touchend', () => setTimeout(() => el.classList.remove('is-touched'), 150));
   });
+
+  const postCards = document.querySelectorAll('.post-card');
+  if (postCards.length) {
+    const zoomObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle('in-view', entry.isIntersecting);
+      });
+    }, { threshold: 0.35 });
+
+    postCards.forEach(el => zoomObserver.observe(el));
+  }
 });
